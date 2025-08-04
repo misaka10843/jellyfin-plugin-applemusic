@@ -18,7 +18,10 @@ public static class PluginUtils
     /// <summary>
     /// Gets Apple Music base URL.
     /// </summary>
-    public static string AppleMusicBaseUrl => "https://music.apple.com/us";
+    public static string AppleMusicBaseUrl =>
+        string.IsNullOrEmpty(Plugin.Instance?.Configuration?.AppleMusicRegion)
+            ? "https://music.apple.com/us"
+            : "https://music.apple.com/" + Plugin.Instance!.Configuration.AppleMusicRegion;
 
     /// <summary>
     /// Update image resolution (width)x(height)(opts) in image URL.
