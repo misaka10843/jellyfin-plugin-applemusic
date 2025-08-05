@@ -1,14 +1,14 @@
 ---
 name: "Apple Music"
 guid: "eb5d7894-8eef-4b36-aa6f-5d124e828ce1"
-version: "3.0.3.2"
+version: "3.0.3.3-misaka10843"
 targetAbi: "10.10.0.0"
 framework: "net8.0"
 overview: "Fetch images and metadata from Apple Music."
 description: >
   Apple Music artist and album images and metadata provider.
 category: "Metadata"
-owner: "lyarenei"
+owner: "lyarenei misaka10843"
 artifacts:
 - "AngleSharp.dll"
 - "AngleSharp.XPath.dll"
