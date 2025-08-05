@@ -1,12 +1,27 @@
 <div align=center>
 <h1>Apple Music <i>metadata</i> plugin for Jellyfin</h1>
+<div style="font-size:10px">Modified by misaka10843</div>
+    
 <img alt="Plugin Banner" width=50% height=50% src="https://raw.githubusercontent.com/lyarenei/jellyfin-plugin-applemusic/master/image.png?sanitize=true"/>
 
-[![Build](https://github.com/lyarenei/jellyfin-plugin-applemusic/actions/workflows/build-upload-publish.yml/badge.svg)](https://github.com/lyarenei/jellyfin-plugin-applemusic/actions/workflows/build-upload-publish.yml)
-[![GPLv3 License](https://img.shields.io/github/license/lyarenei/jellyfin-plugin-applemusic.svg)](https://github.com/lyarenei/jellyfin-plugin-applemusic)
-[![Current Release](https://img.shields.io/github/release/lyarenei/jellyfin-plugin-applemusic.svg)](https://github.com/lyarenei/jellyfin-plugin-applemusic/releases)
+[![Build](https://github.com/misaka10843/jellyfin-plugin-applemusic/actions/workflows/build-upload-publish.yml/badge.svg)](https://github.com/misaka10843/jellyfin-plugin-applemusic/actions/workflows/build-upload-publish.yml)
+[![GPLv3 License](https://img.shields.io/github/license/misaka10843/jellyfin-plugin-applemusic.svg)](https://github.com/misaka10843/jellyfin-plugin-applemusic)
+[![Current Release](https://img.shields.io/github/release/misaka10843/jellyfin-plugin-applemusic.svg)](https://github.com/misaka10843/jellyfin-plugin-applemusic/releases)
 
 </div>
+
+> [!NOTE]
+> Thanks a lot to [@lyarenei](https://github.com/lyarenei/jellyfin-plugin-applemusic) for making the plugin.
+>
+> But when I was actually using it, I noticed some problems, mainly about the apple music region.
+>
+> I saw that lyarenei opened a PR to fix the region problem in PR, but it doesn't seem to be making any headway.
+>
+> So I decided to fork a branch first and add a settings interface.
+>
+> That way, users can do the configuration as they like.
+>
+> Remember to give the upstream repository a star!
 
 ## About
 
@@ -39,13 +54,17 @@ Head over to `Repositories` tab in Jellyfin server settings > Plugins (advanced 
 #### Manual
 
 To install the plugin manually, either compile the plugin yourself or grab a release from the
-[releases page](https://github.com/lyarenei/jellyfin-plugin-applemusic/releases).
+[releases page](https://github.com/misaka10843/jellyfin-plugin-applemusic/releases).
 
 For more details on how to build and install the plugin, check out the [Build section](#build).
 
 ## Configuration
 
-This plugin has no configuration (at least right now). Once you install it, it's ready to use.
+This plugin have configuration. 
+
+If you need to change the area of apple music, then go to the plugin page to configure it. 
+
+Otherwise, Once you install it, it's ready to use.
 
 However, don't forget to enable `Apple Music` sources in library settings.
 
