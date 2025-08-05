@@ -7,6 +7,7 @@ using AngleSharp;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AngleSharp.XPath;
+using Jellyfin.Plugin.AppleMusic.Configuration;
 using Jellyfin.Plugin.AppleMusic.Dtos;
 using Jellyfin.Plugin.AppleMusic.Scrapers;
 using Jellyfin.Plugin.AppleMusic.Utils;
@@ -116,10 +117,11 @@ public class AppleMusicMetadataService : IMetadataService
 
     private static string GetCategoryLabel(ItemType type)
     {
+        var config = Plugin.Instance?.Configuration ?? new PluginConfiguration();
         return type switch
         {
-            ItemType.Album => "Albums",
-            ItemType.Artist => "Artists",
+            ItemType.Album => config.AppleMusicAlbumTitle,
+            ItemType.Artist => config.AppleMusicArtistTitle,
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
     }

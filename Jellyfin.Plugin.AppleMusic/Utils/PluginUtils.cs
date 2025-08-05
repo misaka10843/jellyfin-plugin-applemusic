@@ -1,7 +1,9 @@
 using System;
 using System.Globalization;
 using Jellyfin.Plugin.AppleMusic.ExternalIds;
+using Jellyfin.Plugin.AppleMusic.Providers;
 using MediaBrowser.Model.Entities;
+using Microsoft.Extensions.Logging;
 
 namespace Jellyfin.Plugin.AppleMusic.Utils;
 

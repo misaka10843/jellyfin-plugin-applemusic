@@ -133,10 +133,11 @@ public class ITunesAlbumMetadataProvider : IRemoteMetadataProvider<MusicAlbum, A
     {
         var albumName = GetAlbumName(info);
         var albumArtist = GetArtistName(info);
+
         if (string.IsNullOrEmpty(albumArtist))
         {
-            _logger.LogDebug("Album artist name is not available");
-            return string.Empty;
+            _logger.LogInformation("Album artist name is not available,t his may lead to incorrect results");
+            // return string.Empty;
         }
 
         return $"{albumArtist} {albumName}";
@@ -176,7 +177,6 @@ public class ITunesAlbumMetadataProvider : IRemoteMetadataProvider<MusicAlbum, A
             return new List<string> { providerUrl };
         }
 
-        _logger.LogDebug("Search URL:{Url}", providerUrl);
         var searchTerm = GetSearchTerm(searchInfo);
         if (string.IsNullOrEmpty(searchTerm))
         {
