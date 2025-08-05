@@ -11,7 +11,7 @@
                 <form id="TemplateConfigForm">
                     <div class="inputContainer">
                         <label class="inputLabel inputLabelUnfocused" for="AppleMusicRegion">Apple Music Region</label>
-                        <input id="AppleMusicRegion" name="AppleMusicRegion" type="text" is="emby-input" />
+                        <input id="AppleMusicRegion" name="AppleMusicRegion" type="text" is="emby-input" onKeyUp="this.value=this.value.replace(/[^a-zA-Z]/g,'')" />
                         <span class="fieldDescription">Set apple music region,e.g. <code>us</code> or <code>jp</code></span>
                     </div>
                     <div>

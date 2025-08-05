@@ -176,6 +176,7 @@ public class ITunesAlbumMetadataProvider : IRemoteMetadataProvider<MusicAlbum, A
             return new List<string> { providerUrl };
         }
 
+        _logger.LogDebug("Search URL:{Url}", providerUrl);
         var searchTerm = GetSearchTerm(searchInfo);
         if (string.IsNullOrEmpty(searchTerm))
         {

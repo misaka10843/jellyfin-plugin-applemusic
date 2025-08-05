@@ -23,6 +23,7 @@ public class AlbumScraper : IScraper<MusicAlbum>
     private const string AlbumArtistXPath = "//a[@data-testid='click-action']";
     private const string AboutXPath = "//p[@data-testid='truncate-text']";
     private const string AlbumDescriptionXPath = "//p[@data-testid='tracklist-footer-description']";
+    private const string ReleaseDateXPath = "//meta[@property='music:release_date']/@content";
 
     private const string AlbumDescRegex = @"(?'date'\w+ \d+, \d+)\W(?'runtime'\d+)\W+(?'runtimeUnit'\w+)\W+(?'productionYear'\d+)\W+(?'producer'\w+)";
 
@@ -76,13 +77,36 @@ public class AlbumScraper : IScraper<MusicAlbum>
 
         var aboutText = document.Body.SelectSingleNode(AlbumDetailXPath + AboutXPath)?.TextContent;
         var descString = document.Body.SelectSingleNode(AlbumDescriptionXPath)?.TextContent;
-        var parsedDesc = ParseDescription(descString);
+
+        DateTime? releaseDate = null;
+        var metaDate = document.Head.SelectSingleNode(ReleaseDateXPath)?.TextContent;
+        if (!string.IsNullOrEmpty(metaDate))
+        {
+            if (DateTime.TryParse(metaDate, null, DateTimeStyles.AdjustToUniversal, out var dt))
+            {
+                releaseDate = dt;
+            }
+            else
+            {
+                _logger.LogDebug("Failed to parse meta release date: {MetaDate}", metaDate);
+            }
+        }
+
+        if (releaseDate == null)
+        {
+            var parsed = ParseDescription(descString);
+            if (parsed != null)
+            {
+                releaseDate = parsed.Value.Date;
+            }
+        }
+
         return new ITunesAlbum
         {
             Name = albumName.Trim(),
             Artists = artists,
             ImageUrl = imageUrl,
-            ReleaseDate = parsedDesc?.Date,
+            ReleaseDate = releaseDate,
             About = aboutText
         };
     }
