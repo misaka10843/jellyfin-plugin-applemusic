@@ -14,4 +14,5 @@ artifacts:
 - "AngleSharp.XPath.dll"
 - "Jellyfin.Plugin.AppleMusic.dll"
 changelog: >
-  Maintenance release: rename `iTunes` to `Apple Music`
+  This version has updated the issue where albums could not be searched directly by name
+  In the Settings page, configuration areas, album and artist title names corresponding to regional stations have been added
